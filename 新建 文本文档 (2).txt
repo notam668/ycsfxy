@@ -1,0 +1,1015 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no, email=no">
+    <title>盐城工学院2026级新生服务大厅</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+            -webkit-overflow-scrolling: touch;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            background: #f0f2f5;
+            color: #333;
+            min-height: 100vh;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* 导航栏 */
+        .nav-bar {
+            background: #fff;
+            padding: 12px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        .nav-bar .close-btn,
+        .nav-bar .more-btn {
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-bar .title-group {
+            text-align: center;
+        }
+
+        .nav-bar .title-group .main-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .nav-bar .title-group .sub-title {
+            font-size: 11px;
+            color: #999;
+            margin-top: 2px;
+        }
+
+        /* Banner区域 */
+        .banner {
+            background: linear-gradient(135deg, #0a2e1a 0%, #1b4e2d 20%, #2c6a4a 40%, #3fa06b 60%, #5cf68b 80%, #8bfaa7 100%);
+            padding: 45px 20px 50px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .banner::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -20%;
+            width: 140%;
+            height: 200%;
+            background: radial-gradient(ellipse at 70% 20%, rgba(255,255,255,0.06) 0%, transparent 50%),
+                        radial-gradient(ellipse at 85% 50%, rgba(139, 250, 167, 0.12) 0%, transparent 40%),
+                        radial-gradient(ellipse at 90% 70%, rgba(92, 246, 139, 0.08) 0%, transparent 35%),
+                        radial-gradient(ellipse at 30% 80%, rgba(63, 160, 107, 0.05) 0%, transparent 45%);
+            animation: bannerShimmer 12s ease-in-out infinite;
+        }
+
+        .banner::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 2px 2px, rgba(255,255,255,0.03) 1px, transparent 0),
+                radial-gradient(circle at 10px 10px, rgba(255,255,255,0.02) 1px, transparent 0);
+            background-size: 20px 20px;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        @keyframes bannerShimmer {
+            0%, 100% { transform: translateX(-10%) rotate(0deg); }
+            50% { transform: translateX(10%) rotate(5deg); }
+        }
+
+        .banner .wave-bg {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            opacity: 0.15;
+        }
+
+        .banner-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .banner .tag {
+            display: inline-block;
+            color: #f3f4f6;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            letter-spacing: 6px;
+            padding: 10px 24px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .banner .main-heading {
+            font-size: 56px;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: 3px;
+            text-shadow: 0 2px 20px rgba(167, 139, 250, 0.5);
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        @media screen and (max-width: 768px) {
+            .banner {
+                padding: 35px 16px 40px;
+            }
+            .banner .tag {
+                font-size: 18px;
+                letter-spacing: 3px;
+                padding: 8px 16px;
+            }
+            .banner .main-heading {
+                font-size: 44px;
+                letter-spacing: 2.5px;
+            }
+            .banner .sub-heading {
+                font-size: 14px;
+            }
+            .countdown-card {
+                margin: -10px 6px 10px;
+                padding: 16px 10px;
+            }
+            .countdown-date {
+                font-size: 24px;
+            }
+            .countdown-number {
+                width: 38px;
+                height: 38px;
+                font-size: 18px;
+            }
+            .card {
+                padding: 16px 12px;
+                margin-bottom: 10px;
+            }
+            .card-header .card-title {
+                font-size: 15px;
+            }
+            .grid-container {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 6px;
+            }
+            .grid-item {
+                padding: 10px 2px;
+            }
+            .grid-item .icon-wrapper {
+                width: 48px;
+                height: 48px;
+            }
+            .grid-item .item-label {
+                font-size: 11px;
+                max-width: 60px;
+            }
+            .notice-bar {
+                margin: -10px 6px 10px;
+                padding: 12px 12px;
+            }
+        }
+
+        /* 小屏手机适配 (320px - 480px) */
+        @media screen and (max-width: 480px) {
+            .banner {
+                padding: 30px 12px 35px;
+            }
+            .banner .tag {
+                font-size: 16px;
+                letter-spacing: 2px;
+                padding: 6px 12px;
+            }
+            .banner .main-heading {
+                font-size: 36px;
+                letter-spacing: 2px;
+            }
+            .banner .sub-heading {
+                font-size: 13px;
+            }
+            .countdown-card {
+                margin: -8px 4px 8px;
+                padding: 12px 8px;
+            }
+            .countdown-content {
+                gap: 12px;
+            }
+            .countdown-alarm {
+                width: 50px;
+                height: 50px;
+            }
+            .countdown-date {
+                font-size: 22px;
+            }
+            .countdown-title {
+                font-size: 12px;
+            }
+            .countdown-number {
+                width: 34px;
+                height: 34px;
+                font-size: 16px;
+            }
+            .card {
+                padding: 14px 10px;
+                margin-bottom: 8px;
+            }
+            .card-header {
+                margin-bottom: 14px;
+            }
+            .card-header .card-title {
+                font-size: 14px;
+            }
+            .card-header .card-status {
+                font-size: 12px;
+            }
+            .grid-container {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 5px;
+            }
+            .grid-item {
+                padding: 8px 2px;
+            }
+            .grid-item .icon-wrapper {
+                width: 42px;
+                height: 42px;
+            }
+            .grid-item .icon-wrapper svg {
+                width: 22px;
+                height: 22px;
+            }
+            .grid-item .item-label {
+                font-size: 10px;
+                max-width: 55px;
+            }
+            .notice-bar {
+                margin: -8px 4px 8px;
+                padding: 10px 10px;
+            }
+            .notice-bar .notice-text {
+                font-size: 12px;
+            }
+            .footer {
+                padding: 12px;
+            }
+            .footer .visit-count {
+                font-size: 11px;
+            }
+        }
+
+        /* 超小屏适配 (< 320px) */
+        @media screen and (max-width: 320px) {
+            .banner .tag {
+                font-size: 14px;
+                padding: 5px 10px;
+            }
+            .banner .main-heading {
+                font-size: 22px;
+            }
+            .banner .sub-heading {
+                font-size: 12px;
+            }
+            .countdown-number {
+                width: 30px;
+                height: 30px;
+                font-size: 14px;
+            }
+            .grid-container {
+                gap: 4px;
+            }
+            .grid-item .icon-wrapper {
+                width: 38px;
+                height: 38px;
+            }
+            .grid-item .item-label {
+                font-size: 9px;
+            }
+        }
+
+        .banner .sub-heading {
+            font-size: 16px;
+            color: #f3f4f6;
+            letter-spacing: 2px;
+            display: block;
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: 500;
+            line-height: 1.6;
+        }
+
+        .banner .sub-heading::before {
+            content: none;
+        }
+
+        .banner .sub-heading span {
+            color: #a78bfa;
+            font-weight: 600;
+        }
+
+        .banner .divider-line {
+            width: 80%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent 0%, #a78bfa 50%, transparent 100%);
+            border-radius: 1px;
+            margin: 0 auto;
+            margin-top: 15px;
+        }
+
+        /* 倒计时卡片 */
+        .countdown-card {
+            background: linear-gradient(135deg, #e8fef0, #f0f4f0);
+            margin: -15px 8px 12px;
+            border-radius: 16px;
+            padding: 20px 12px;
+            position: relative;
+            z-index: 3;
+            box-shadow: 0 4px 20px rgba(34, 197, 94, 0.1);
+            overflow: hidden;
+        }
+
+        .countdown-content {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: nowrap;
+        }
+
+        .countdown-alarm {
+            flex-shrink: 0;
+            width: 60px;
+            height: 60px;
+        }
+
+        .countdown-alarm svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .countdown-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .countdown-card::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, rgba(34, 197, 94, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .countdown-header {
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .countdown-date {
+            font-size: 28px;
+            font-weight: 800;
+            color: #56d364;
+            margin-bottom: 6px;
+            letter-spacing: 2px;
+        }
+
+        .countdown-title {
+            font-size: 13px;
+            color: #4b5563;
+            font-weight: 500;
+        }
+
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+            flex-wrap: nowrap;
+        }
+
+        .countdown-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .countdown-number {
+            background: linear-gradient(135deg, #56d364, #34d399);
+            color: #fff;
+            font-size: 22px;
+            font-weight: 700;
+            width: 44px;
+            height: 44px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(86, 211, 100, 0.4);
+        }
+
+        .countdown-label {
+            font-size: 12px;
+            color: #6b7280;
+            margin-top: 6px;
+        }
+
+        .countdown-separator {
+            color: #9ca3af;
+            font-size: 16px;
+            font-weight: 600;
+            font-weight: bold;
+            margin: 0 4px;
+        }
+
+        /* 公告条 */
+        .notice-bar {
+            background: #fff;
+            margin: -15px 12px 12px;
+            border-radius: 12px;
+            padding: 14px 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            position: relative;
+            z-index: 3;
+        }
+
+        .notice-bar .speaker-icon {
+            flex-shrink: 0;
+            color: #2563eb;
+        }
+
+        .notice-bar .notice-text {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.5;
+            flex: 1;
+        }
+
+        .notice-bar .notice-text strong {
+            color: #2563eb;
+            font-weight: 600;
+        }
+
+        /* 内容区域 */
+        .content-area {
+            padding: 0 12px 20px;
+        }
+
+        /* 卡片容器 */
+        .card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 20px 16px;
+            margin-bottom: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+        }
+
+        .card-header .card-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1a1a1a;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .card-header .card-title .arrow {
+            color: #999;
+            font-size: 14px;
+        }
+
+        .card-header .card-status {
+            font-size: 13px;
+            color: #999;
+        }
+
+        /* 宫格布局 */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+        }
+
+        .grid-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 12px 4px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            text-decoration: none;
+        }
+
+        .grid-item:active {
+            transform: scale(0.95);
+            background: #f5f5f5;
+        }
+
+        .grid-item .icon-wrapper {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 8px;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .grid-item:active .icon-wrapper {
+            transform: scale(0.9);
+        }
+
+        .grid-item .icon-wrapper svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        .grid-item .item-label {
+            font-size: 12px;
+            color: #555;
+            text-align: center;
+            line-height: 1.3;
+            max-width: 70px;
+        }
+
+        /* 标签 */
+        .badge {
+            position: absolute;
+            top: -4px;
+            right: -4px;
+            background: #ef4444;
+            color: #fff;
+            font-size: 9px;
+            padding: 2px 6px;
+            border-radius: 8px;
+            white-space: nowrap;
+            font-weight: 600;
+            box-shadow: 0 2px 4px rgba(239,68,68,0.3);
+        }
+
+        .badge.blue {
+            background: #2563eb;
+            box-shadow: 0 2px 4px rgba(37,99,235,0.3);
+        }
+
+        .badge.orange {
+            background: #f59e0b;
+            box-shadow: 0 2px 4px rgba(245,158,11,0.3);
+        }
+
+        .badge.green {
+            background: #374151;
+            box-shadow: 0 2px 4px rgba(55,65,81,0.3);
+        }
+
+        /* 图标颜色 */
+        .icon-wifi { background: #fff; border: 1px solid #e5e7eb; }
+        .icon-rights { background: #fff; border: 1px solid #e5e7eb; }
+        .icon-router { background: #fff; border: 1px solid #e5e7eb; }
+        .icon-consult { background: #fff; border: 1px solid #e5e7eb; }
+        .icon-schedule { background: #fff; border: 1px solid #e5e7eb; }
+        .icon-major { background: #fff; border: 1px solid #e5e7eb; }
+        .icon-archive { background: #fff; border: 1px solid #e5e7eb; }
+        .icon-distribution { background: #fff; border: 1px solid #e5e7eb; }
+        .icon-panorama { background: #fff; border: 1px solid #e5e7eb; }
+        .icon-class { background: #fff; border: 1px solid #e5e7eb; }
+        .icon-life { background: #fff; border: 1px solid #e5e7eb; }
+        .icon-dorm { background: #fff; border: 1px solid #e5e7eb; }
+        .icon-calendar { background: #fff; border: 1px solid #e5e7eb; }
+        .icon-league { background: #fff; border: 1px solid #e5e7eb; }
+
+        /* 第二块区域的网格 - 更多列 */
+        .grid-container.large {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        /* 底部统计 */
+        .footer {
+            background: #fff;
+            padding: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #eee;
+            margin-top: 8px;
+        }
+
+        .footer .visit-count {
+            font-size: 12px;
+            color: #999;
+        }
+
+        .footer .visit-count strong {
+            color: #333;
+            font-weight: 600;
+        }
+
+        .footer .logos {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .footer .logo-item {
+            height: 40px;
+            width: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer .logo-item svg {
+            height: 100%;
+            width: auto;
+            object-fit: cover;
+        }
+
+        .footer .logo-item img {
+            height: 100%;
+            width: auto;
+            object-fit: cover;
+        }
+
+        .footer .logo-5g {
+            height: 28px;
+        }
+
+        .footer .logo-unicom {
+            height: 44px;
+        }
+
+        /* 动画 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card {
+            animation: fadeInUp 0.5s ease forwards;
+        }
+
+        .card:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+
+        /* 滚动条美化 */
+        ::-webkit-scrollbar {
+            width: 0;
+        }
+
+        /* 安全区域 */
+        .safe-bottom {
+            height: env(safe-area-inset-bottom, 20px);
+        }
+    </style>
+</head>
+<body>
+</function></seed:tool_call>
+
+    <!-- Banner -->
+    <div class="banner">
+        <svg class="wave-bg" viewBox="0 0 1440 100" preserveAspectRatio="none">
+            <path fill="rgba(255,255,255,0.3)" d="M0,40 C360,100 720,0 1080,60 C1260,90 1380,50 1440,40 L1440,100 L0,100 Z"/>
+            <path fill="rgba(255,255,255,0.2)" d="M0,60 C240,20 480,80 720,50 C960,20 1200,70 1440,50 L1440,100 L0,100 Z"/>
+        </svg>
+        <div class="banner-content">
+            <div class="tag">盐城工学院</div>
+            <h1 class="main-heading">新生服务大厅</h1>
+            <p class="sub-heading">学生答疑 · 校园生活攻略 · 入学指南</p>
+            <div class="divider-line"></div>
+        </div>
+    </div>
+
+    <!-- 倒计时卡片 -->
+    <div class="countdown-card">
+        <div class="countdown-content">
+            <div class="countdown-alarm">
+                <svg t="1780674529310" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M688.4 469.6c-197.5-43.3-35.6-317.2-306.2-294.5S-145 820.9 335.4 966.8s728-415 353-497.2z" fill="#464BD8"></path><path d="M318.4 811.1c-1.8 0-3.6-0.5-5.2-1.7l-15.6-11.1c-3.8-2.7-4.9-8-2.4-12l52-84.1c1.3-2.1 3.4-3.6 5.8-4.1 0.6-0.1 1.2-0.2 1.8-0.2 1.8 0 3.7 0.6 5.2 1.7l26.3 18.7c2 1.4 3.3 3.6 3.7 6.1 0.3 2.5-0.4 4.9-1.9 6.9l-62.7 76.5a9.15 9.15 0 0 1-7 3.3z" fill="#464BD8"></path><path d="M354.8 706.9l26.3 18.7-62.7 76.5-15.6-11.1 52-84.1m0-17.9c-1.2 0-2.4 0.1-3.5 0.4-4.9 1-9.1 3.9-11.7 8.1l-52 84.1c-5 8-2.8 18.5 4.8 24l15.6 11.1c3.1 2.2 6.8 3.3 10.4 3.3 5.2 0 10.3-2.3 13.9-6.6l62.7-76.5c3.1-3.8 4.5-8.8 3.9-13.7-0.7-4.9-3.3-9.3-7.3-12.2l-26.3-18.7c-3.2-2.1-6.8-3.3-10.5-3.3z" fill="#151B28"></path><path d="M628.8 811.1c-2.6 0-5.2-1.1-6.9-3.3l-62.7-76.5a8.57 8.57 0 0 1-1.9-6.9c0.3-2.5 1.7-4.7 3.7-6.1l26.3-18.7c1.5-1.1 3.3-1.7 5.2-1.7 0.6 0 1.2 0.1 1.8 0.2 2.4 0.5 4.5 2 5.8 4.1l52 84.1c2.5 4 1.4 9.3-2.4 12L634 809.5a8.66 8.66 0 0 1-5.2 1.6z" fill="#514DDF"></path><path d="M592.5 706.9l52 84.1-15.6 11.1-62.7-76.5 26.3-18.7m0-17.9c-3.7 0-7.3 1.1-10.4 3.3L555.8 711c-4 2.9-6.7 7.3-7.3 12.2-0.7 4.9 0.8 9.9 3.9 13.7l62.7 76.5a17.97 17.97 0 0 0 24.3 3.3l15.6-11.1c7.7-5.5 9.8-16 4.8-24l-52-84.1c-2.6-4.2-6.8-7.2-11.7-8.1-1.3-0.2-2.5-0.4-3.6-0.4z" fill="#151B28"></path><path d="M337.658721 732.820568a192.2 192.2 0 1 0 271.811847-271.811847 192.2 192.2 0 1 0-271.811847 271.811847Z" fill="#FFFFFF"></path><path d="M473.6 414c101 0 182.9 81.9 182.9 182.9s-81.9 182.9-182.9 182.9S290.7 698 290.7 596.9 372.6 414 473.6 414m0-18.5c-27.2 0-53.6 5.3-78.4 15.8-24 10.1-45.5 24.7-64 43.2-18.5 18.5-33 40-43.2 64-10.5 24.8-15.8 51.2-15.8 78.4s5.3 53.6 15.8 78.4c10.1 24 24.7 45.5 43.2 64 18.5 18.5 40 33 64 43.2 24.8 10.5 51.2 15.8 78.4 15.8s53.6-5.3 78.4-15.8c24-10.1 45.5-24.7 64-43.2 18.5-18.5 33-40 43.2-64 10.5-24.8 15.8-51.2 15.8-78.4s-5.3-53.6-15.8-78.4c-10.1-24-24.7-45.5-43.2-64-18.5-18.5-40-33-64-43.2a200.03 200.03 0 0 0-78.4-15.8z" fill="#151B28"></path><path d="M485.4 609.5m-141.5 0a141.5 141.5 0 1 0 283 0 141.5 141.5 0 1 0-283 0Z" fill="#2AEFC8"></path><path d="M473.6 453.6c79.2 0 143.3 64.2 143.3 143.3s-64.2 143.3-143.3 143.3S330.3 676 330.3 596.9s64.1-143.3 143.3-143.3m0-9.4c-40.8 0-79.2 15.9-108 44.7-28.9 28.9-44.7 67.2-44.7 108s15.9 79.2 44.7 108c28.9 28.9 67.2 44.7 108 44.7s79.2-15.9 108-44.7c28.9-28.9 44.7-67.2 44.7-108s-15.9-79.2-44.7-108a151.81 151.81 0 0 0-108-44.7z" fill="#151B28"></path><path d="M288.7 473.4c-3.2 0-6.1-1.6-7.8-4.3a80.9 80.9 0 0 1-12.6-46c0.6-21.6 9.4-41.8 25-56.9a81.87 81.87 0 0 1 57.4-23.4h2.2c23.2 0.6 45 11 59.9 28.4 2.1 2.4 2.7 5.7 1.8 8.8s-3.4 5.4-6.5 6.2c-46.4 12.4-86 41.7-111.4 82.8a9.47 9.47 0 0 1-8 4.4z" fill="#FFFFFF"></path><path d="M350.6 352.1h1.9c21.3 0.6 40.3 10.2 53.1 25.2-49 13-90.7 44.6-116.9 86.8a72.62 72.62 0 0 1-11.2-40.8c1-39.6 33.6-71.2 73.1-71.2m0-18.5c-24 0-46.7 9.2-63.9 26a91.45 91.45 0 0 0-27.8 63.3c-0.5 18.2 4.4 35.9 14.1 51.2 3.4 5.4 9.3 8.6 15.6 8.6h0.1c6.4 0 12.3-3.4 15.6-8.8 24.2-39 61.8-66.9 105.9-78.7a18.5 18.5 0 0 0 9.3-29.9 90.79 90.79 0 0 0-66.7-31.7h-2.2z" fill="#151B28"></path><path d="M658.5 473.4c-3.2 0-6.1-1.7-7.8-4.4-25.4-41-65-70.4-111.4-82.8-3.1-0.8-5.5-3.2-6.5-6.2-0.9-3-0.3-6.3 1.8-8.8a81.34 81.34 0 0 1 59.9-28.4h2.2c21.5 0 41.9 8.3 57.4 23.4a82.25 82.25 0 0 1 25 56.9c0.4 16.4-3.9 32.3-12.6 46a9.61 9.61 0 0 1-8 4.3z" fill="#FFFFFF"></path><path d="M596.6 352.1c39.5 0 72.1 31.6 73.1 71.3 0.4 15-3.8 29.1-11.2 40.8a197.35 197.35 0 0 0-116.9-86.8c12.7-15 31.8-24.6 53.1-25.2 0.7 0 1.3-0.1 1.9-0.1m0-18.5h-2.4c-25.8 0.7-50.1 12.2-66.7 31.7-4.1 4.8-5.5 11.5-3.6 17.5 1.9 6.1 6.8 10.7 12.9 12.4 44.1 11.7 81.8 39.7 105.9 78.7 3.4 5.4 9.3 8.7 15.6 8.8h0.1c6.3 0 12.2-3.2 15.6-8.6 9.7-15.3 14.6-33 14.1-51.2-0.6-24-10.5-46.5-27.8-63.3-17-16.8-39.7-26-63.7-26z" fill="#151B28"></path><path d="M473.6 606.2c-5.1 0-9.3-4.1-9.3-9.3v-89.8c0-5.1 4.1-9.3 9.3-9.3s9.3 4.1 9.3 9.3v89.8c0 5.2-4.2 9.3-9.3 9.3z" fill="#151B28"></path><path d="M513.9 629.8c-1.6 0-3.2-0.4-4.7-1.3l-40.3-23.6a9.3 9.3 0 0 1-3.3-12.7 9.3 9.3 0 0 1 12.7-3.3l40.3 23.6a9.3 9.3 0 0 1 3.3 12.7 9.1 9.1 0 0 1-8 4.6z" fill="#151B28"></path></svg>
+            </div>
+            <div class="countdown-info">
+                <div class="countdown-header">
+                    <div class="countdown-date">9月3日</div>
+                    <div class="countdown-title">新生报到倒计时</div>
+                </div>
+                <div class="countdown-timer">
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="countdown-days">0</div>
+                        <div class="countdown-label">天</div>
+                    </div>
+                    <span class="countdown-separator">:</span>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="countdown-hours">0</div>
+                        <div class="countdown-label">时</div>
+                    </div>
+                    <span class="countdown-separator">:</span>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="countdown-minutes">0</div>
+                        <div class="countdown-label">分</div>
+                    </div>
+                    <span class="countdown-separator">:</span>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="countdown-seconds">0</div>
+                        <div class="countdown-label">秒</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 公告条 -->
+    <div class="notice-bar">
+        <div class="speaker-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+        </div>
+        <div class="notice-text">
+            <strong>【盐小工服务站】</strong>是中国联通·盐城工学院校园营业厅官方账号，为新生提供全方位校园服务
+        </div>
+    </div>
+
+    <!-- 内容区域 -->
+    <div class="content-area">
+        <!-- 第一块：校园网在线申领 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">
+                    校园网Wifi在线申领
+                    <span class="arrow">›</span>
+                </div>
+                <div class="card-status">2026级新生暂未开启</div>
+            </div>
+            <div class="grid-container">
+                <a class="grid-item" data-title="关于校园网" data-desc="了解盐城工学院校园网络覆盖情况、资费标准及使用指南">
+                    <div class="icon-wrapper icon-wifi">
+                        <span class="badge green">wifi</span>
+                        <svg t="1781441426430" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%; object-fit: cover;"><path d="M512.213333 414.08c-138.88 0-263.253333 71.04-330.453333 165.973333-6.826667 8.96-5.973333 19.626667 1.28 28.8l68.906667 78.933334c9.173333 11.306667 21.333333 10.026667 30.08-1.493334 53.76-68.906667 140.586667-118.4 229.973333-117.333333 90.24-1.066667 176.64 50.133333 230.826667 119.04 8.746667 10.666667 20.266667 10.666667 29.226666-0.64l68.906667-78.506667c7.466667-8.533333 8.32-19.84 1.28-28.8-66.986667-95.573333-191.573333-165.973333-330.24-165.973333z" fill="#333333"></path><path d="M1019.733333 372.266667C915.2 224 718.506667 114.56 512.213333 114.56S109.226667 224 4.48 372.266667c-6.4 8.533333-5.973333 20.266667 1.28 29.44l61.013333 72.106666c8.746667 10.026667 21.76 9.6 30.08-0.426666 109.226667-133.973333 253.44-204.373333 414.933334-204.373334s307.2 71.04 416 205.013334c7.893333 9.173333 20.48 9.173333 28.586666-1.066667l61.653334-71.04c7.466667-8.96 7.466667-20.906667 1.28-29.44z" fill="#333333"></path><path d="M512 802.56m-106.88 0a106.88 106.88 0 1 0 213.76 0 106.88 106.88 0 1 0-213.76 0Z" fill="#333333"></path></svg>
+                    </div>
+                    <span class="item-label">关于校园网</span>
+                </a>
+                <a class="grid-item" data-title="大学生权益" data-desc="每月免费领取校园网流量包，享受专属学生优惠">
+                    <div class="icon-wrapper icon-rights">
+                        <span class="badge">每月免费领</span>
+                        <svg viewBox="0 0 1024 1024" style="width: 100%; height: 100%; object-fit: cover;"><path d="M148.72381 719.238095l-97.52381 156.038095c-4.87619 9.752381 0 21.942857 12.190476 21.942858l131.657143 7.314285c4.87619 0 7.314286 2.438095 9.752381 4.876191l80.457143 107.27619c7.314286 7.314286 19.504762 7.314286 24.380952 0l92.647619-153.6c4.87619-7.314286 2.438095-14.628571-4.87619-19.504762l-229.180953-129.219047c-7.314286-2.438095-14.628571 0-19.504761 4.87619zM875.27619 716.8l97.52381 156.038095c4.87619 9.752381 0 21.942857-12.190476 21.942857L828.952381 902.095238c-4.87619 0-7.314286 2.438095-9.752381 4.876191l-80.457143 107.27619c-7.314286 7.314286-19.504762 7.314286-24.380952 0l-92.647619-153.6c-4.87619-7.314286-2.438095-14.628571 4.87619-19.504762l229.180953-129.219047c7.314286-4.87619 14.628571-2.438095 19.504761 4.87619zM855.771429 185.295238L546.133333 9.752381c-21.942857-12.190476-51.2-12.190476-73.142857 0L165.790476 182.857143C143.847619 195.047619 129.219048 219.428571 129.219048 243.809524v348.647619c0 24.380952 14.628571 48.761905 36.571428 60.952381L475.428571 828.952381c21.942857 12.190476 51.2 12.190476 73.142858 0l307.2-170.666667c21.942857-12.190476 36.571429-36.571429 36.571428-60.952381V248.685714c0-26.819048-14.628571-51.2-36.571428-63.390476z m-146.285715 148.72381l-180.419047 260.87619c-4.87619 7.314286-14.628571 12.190476-24.380953 12.190476s-19.504762-4.87619-24.380952-12.190476l-173.104762-260.87619c-9.752381-12.190476-4.87619-31.695238 7.314286-39.009524 12.190476-7.314286 31.695238-4.87619 39.009524 7.314286l148.723809 224.304761 156.038095-226.742857c9.752381-12.190476 26.819048-17.066667 39.009524-7.314285 19.504762 12.190476 21.942857 29.257143 12.190476 41.447619z" fill="#F5B53A"></path></svg>
+                    </div>
+                    <span class="item-label">大学生权益</span>
+                </a>
+                <a class="grid-item" data-title="路由器领取" data-desc="新生入学可免费领取校园专用路由器一台">
+                    <div class="icon-wrapper icon-router">
+                        <svg t="1781441163516" class="icon" viewBox="0 0 1178 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%; object-fit: cover;"><path d="M155.5452 245.183099v-144.508703a47.050333 47.050333 0 0 1 13.855835-33.591189 46.511968 46.511968 0 0 1 33.477849-13.955008 47.262846 47.262846 0 0 1 47.432857 47.305349v144.749551z m302.448214-3.08852V97.345029a47.262846 47.262846 0 0 0-47.432856-47.305349 46.511968 46.511968 0 0 0-33.47785 13.955007 47.050333 47.050333 0 0 0-13.855834 33.59119v144.508702z m720.744238 566.686627v81.250726a94.809043 94.809043 0 0 1-94.794875 94.794876h-0.425026a34.002048 34.002048 0 0 1-33.59119 39.173192h-37.062232a34.002048 34.002048 0 0 1-33.591189-39.173192H184.262763a34.002048 34.002048 0 0 1-33.591189 39.173192H113.566839a34.002048 34.002048 0 0 1-33.407012-40.306594A94.922383 94.922383 0 0 1 0 890.031932v-81.250726a94.922383 94.922383 0 0 1 94.794875-94.794875h60.920336l-0.141675-419.996127h94.780707l0.141676 420.038629h112.900965l-0.141675-423.05631h94.780708l0.141675 423.098813h625.821855a94.922383 94.922383 0 0 1 94.738205 94.70987z m-67.182379 0a27.640831 27.640831 0 0 0-27.612496-27.598329H94.837378a27.626664 27.626664 0 0 0-27.598329 27.598329v81.250726a27.640831 27.640831 0 0 0 27.598329 27.612496h989.162069a27.598329 27.598329 0 0 0 19.65035-8.174658 27.272476 27.272476 0 0 0 8.018816-19.437838z" fill=""></path><path d="M221.324995 883.160685a33.888707 33.888707 0 1 1 17.001024-4.547774 33.917043 33.917043 0 0 1-17.001024 4.547774z m142.326905-4.547774a33.846205 33.846205 0 1 0-17.001024 4.547774 34.002048 34.002048 0 0 0 17.001024-4.533606z m267.766125-29.326766a33.87454 33.87454 0 1 0-33.87454 33.87454 34.002048 34.002048 0 0 0 33.81787-33.87454zM799.359805 68.995822c17.312709 17.511055 29.071751 31.678574 41.255818 50.238025q9.506406 14.493373 17.59606 29.836797 4.009408 7.593791 7.65046 15.371759 1.813443 3.8819 3.54188 7.792136-1.870113-4.632779 0.892554 2.181798a376.402667 376.402667 0 0 1 19.126152 64.901408q1.629265 8.259664 2.833504 16.604334c-0.977559-6.545394 0.935056 8.713025 1.076731 10.158111q1.530092 16.731841 1.530093 33.562855t-1.530093 33.562854c-0.127508 1.416752-2.040123 16.703506-1.076731 10.158112q-1.232574 8.330502-2.833504 16.604333a376.402667 376.402667 0 0 1-19.126152 64.901409q-2.762666 6.814577-0.892554 2.181798-1.728437 3.910235-3.54188 7.792136-3.641053 7.777968-7.65046 15.371759-8.075486 15.329256-17.59606 29.836797c-12.184067 18.573619-23.957276 32.726971-41.255818 50.238025-36.509699 36.948892 20.472066 93.987327 57.0101 57.0101 119.956391-121.415645 151.280777-304.686682 80.910706-459.636847-19.522842-42.998423-47.772877-82.171615-80.910706-115.663632-36.523866-36.963059-93.505631 20.047041-57.0101 57.0101z" fill="#A6BAFB"></path><path d="M704.352417 164.017377c-36.382191-37.090567 20.613741-94.114834 57.0101-57.0101 104.471291 106.497247 104.471291 278.760121 0 385.257368-36.410526 37.118902-93.378123-19.947868-57.0101-57.0101 10.993995-11.206508 17.142699-18.587786 24.283129-29.581782q5.879521-9.053045 10.894823-18.644456a116.882039 116.882039 0 0 0 6.531227-13.699991 238.552699 238.552699 0 0 0 11.645701-40.575777 178.822436 178.822436 0 0 0 2.691829-33.123662q0-10.498132-0.935057-20.953761c-0.184178-2.068458-1.147569-9.463903-0.325853-3.881901-0.510031-3.471042-1.147569-6.91375-1.841777-10.356457a237.745151 237.745151 0 0 0-11.234843-38.507319c-7.551288-19.678685-24.311464-44.174327-41.709179-61.912062z" fill="#9185F7"></path><path d="M472.104264 883.160685a33.87454 33.87454 0 1 1 33.87454-33.87454 33.917043 33.917043 0 0 1-33.87454 33.87454z m137.226597-624.13592c22.668032 23.758931 22.823874 57.307618 0 81.194057-35.857993 37.515593 21.067102 94.610698 57.0101 57.0101a140.329284 140.329284 0 0 0 0-195.214256c-35.886328-37.58643-92.88226 19.494507-57.0101 57.010099z" fill="#7E52F3"></path></svg>
+                    </div>
+                    <span class="item-label">路由器领取</span>
+                </a>
+                <a class="grid-item" data-title="咨询官方" data-desc="联系校园营业厅官方客服，获取一对一咨询服务">
+                    <div class="icon-wrapper icon-consult">
+                        <svg t="1781440973177" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%; object-fit: cover;"><path d="M726.67 843H290.33A65.33 65.33 0 0 1 225 777.67V254.36A65.33 65.33 0 0 1 290.33 189h336a42.92 42.92 0 0 1 30.09 12.31L779.16 322A42.93 42.93 0 0 1 792 352.57v425.1A65.33 65.33 0 0 1 726.67 843z" fill="#FED54A"></path><path d="M731.94 368h-80.56A35.38 35.38 0 0 1 616 332.62v-80.56a14.11 14.11 0 0 1 24.09-10l101.82 101.85a14.11 14.11 0 0 1-9.97 24.09z" fill="#FFFFFF"></path><path d="M307 311m28 0l185 0q28 0 28 28l0 0q0 28-28 28l-185 0q-28 0-28-28l0 0q0-28 28-28Z" fill="#FFE69F"></path><path d="M307 435m28 0l306 0q28 0 28 28l0 0q0 28-28 28l-306 0q-28 0-28-28l0 0q0-28 28-28Z" fill="#FFE69F"></path><path d="M624.25 798l-67.28 0.11a34.91 34.91 0 0 1-35-35l0.11-67.29a62.41 62.41 0 0 1 18.29-44l162.29-162.3a35.05 35.05 0 0 1 49.56 0l78.34 78.34a35 35 0 0 1 0 49.56l-162.3 162.3A62.42 62.42 0 0 1 624.25 798z" fill="#FF7735"></path></svg>
+                    </div>
+                    <span class="item-label">咨询官方</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- 第二块：26级新生专栏 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">
+                    盐城工学院26级新生专栏
+                    <span class="arrow">›</span>
+                </div>
+                <div class="card-status">新生了解校园第一站</div>
+            </div>
+            <div class="grid-container large">
+                <a class="grid-item" data-title="新生课表" data-desc="查看2026级新生课程安排表，提前了解学习计划">
+                    <div class="icon-wrapper icon-schedule">
+                        <span class="badge">学习必备</span>
+                        <svg t="1781442205876" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="8188" style="width: 100%; height: 100%; object-fit: cover;"><path d="M595.44 162.3H429.36c-17.67 0-32-14.33-32-32s14.33-32 32-32h166.09c17.67 0 32 14.33 32 32-0.01 17.67-14.33 32-32.01 32z" fill="#d6606e" p-id="8189"></path><path d="M832.1 98.54l-63.43-0.31h-0.17c-17.6 0-31.91 14.22-32 31.84-0.09 17.67 14.16 32.07 31.83 32.16l63.48 0.31h0.16c17.64 0 32 14.35 32 32v125.54H162V194.24c0-17.65 14.35-32 32-32l62.41-0.01c17.67 0 32-14.33 32-32s-14.33-32-32-32l-62.41 0.01c-52.93 0-96 43.07-96 96v669.45c0 52.93 43.07 96 95.98 96l638.01 0.3c52.93 0 96-43.07 96-96V194.54c0.01-52.9-43-95.95-95.89-96z m-0.09 797.45l-638.01-0.3c-17.65 0-32-14.36-32-32V384.08h702v479.91c0 17.64-14.36 32-31.99 32z" fill="#d6606e" p-id="8190"></path><path d="M736.15 576.09h-447c-17.67 0-32-14.33-32-32s14.33-32 32-32h447c17.67 0 32 14.33 32 32s-14.33 32-32 32zM736.15 767.84h-447c-17.67 0-32-14.33-32-32s14.33-32 32-32h447c17.67 0 32 14.33 32 32 0 17.68-14.33 32-32 32z" fill="#5396d7" p-id="8191"></path><path d="M310.83 171.89V95.95c0-17.67 14.33-32 32-32s32 14.33 32 32v75.94c0 17.67-14.33 32-32 32s-32-14.33-32-32zM649.97 171.89V95.95c0-17.67 14.33-32 32-32s32 14.33 32 32v75.94c0 17.67-14.33 32-32 32s-32-14.33-32-32z" fill="#d6606e" p-id="8192"></path></svg>
+                    </div>
+                    <span class="item-label">新生课表</span>
+                </a>
+                <a class="grid-item" data-title="专业分布表" data-desc="查看各专业分布情况及招生人数统计">
+                    <div class="icon-wrapper icon-major">
+                        <span class="badge orange">2025</span>
+                        <svg t="1781441316844" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%; object-fit: cover;"><path d="M372.363636 698.181818m46.545455 0l139.636364 0q46.545455 0 46.545454 46.545455l0 139.636363q0 46.545455-46.545454 46.545455l-139.636364 0q-46.545455 0-46.545455-46.545455l0-139.636363q0-46.545455 46.545455-46.545455Z" fill="#FFCC00"></path><path d="M93.090909 558.545455h791.272727v46.545454H93.090909z" fill="#DDDDDD"></path><path d="M465.454545 465.454545h46.545455v232.727273h-46.545455zM93.090909 558.545455h46.545455v139.636363H93.090909zM837.818182 558.545455h46.545454v139.636363h-46.545454z" fill="#DDDDDD"></path><path d="M0 698.181818m46.545455 0l139.636363 0q46.545455 0 46.545455 46.545455l0 139.636363q0 46.545455-46.545455 46.545455l-139.636363 0q-46.545455 0-46.545455-46.545455l0-139.636363q0-46.545455 46.545455-46.545455Z" fill="#50A4F6"></path><path d="M325.818182 139.636364m93.090909 0l139.636364 0q93.090909 0 93.090909 93.090909l0 139.636363q0 93.090909-93.090909 93.090909l-139.636364 0q-93.090909 0-93.090909-93.090909l0-139.636363q0-93.090909 93.090909-93.090909Z" fill="#186DD5"></path><path d="M744.727273 698.181818m46.545454 0l139.636364 0q46.545455 0 46.545454 46.545455l0 139.636363q0 46.545455-46.545454 46.545455l-139.636364 0q-46.545455 0-46.545454-46.545455l0-139.636363q0-46.545455 46.545454-46.545455Z" fill="#F86882"></path></svg>
+                    </div>
+                    <span class="item-label">专业分布表</span>
+                </a>
+                <a class="grid-item" data-title="转专业指南" data-desc="了解转专业政策、申请条件及流程" href="https://mp.weixin.qq.com/s/y4hJLo7026wH7K6hVYKzrw">
+                    <div class="icon-wrapper icon-transfer">
+                        <span class="badge">重要</span>
+                        <svg t="1782313774881" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5049" style="width: 85%; height: 85%; object-fit: cover;"><path d="M609.4 197.5c-23.2 4.9-40 18.2-37.6 29.6l107.5 510.4c2.4 11.5 23.1 16.8 46.3 11.9 23.2-4.9 40-18.1 37.6-29.6L655.7 209.4c-2.4-11.4-23.1-16.8-46.3-11.9zM477 96.6l-96.6-0.1c-25.5 0-46.2 20.2-46.3 45.2l-0.3 580.7c0 24.9 20.7 45.2 46.2 45.3h96.6c25.6 0 46.3-20.3 46.3-45.2l0.3-580.7c0.1-24.9-20.6-45.2-46.2-45.2z m-234.5 71.6l-96.5-0.1c-25.6 0-46.3 18.1-46.4 40.4l-0.2 518.7c-0.1 22.2 20.6 40.4 46.2 40.4h96.5c25.6 0 46.4-18.1 46.4-40.4l0.2-518.7c0.1-22.1-20.6-40.3-46.2-40.3z" fill="#00BCD4" p-id="5050"></path><path d="M467.8 313.9l-78.4-0.1c-8.9 0-16.2-7.1-16.2-15.8 0-8.8 7.3-15.9 16.3-15.9l78.4 0.1c8.9 0 16.2 7.1 16.2 15.9-0.1 8.6-7.4 15.8-16.3 15.8z m0.1-67.6h-78.4c-8.9 0-16.2-7.1-16.2-15.9s7.3-15.9 16.2-15.9l78.4 0.1c8.9 0 16.2 7.1 16.2 15.9-0.1 8.7-7.3 15.8-16.2 15.8zM233.3 381.8l-78.5-0.1c-8.9 0-16.2-7.1-16.2-15.8 0.1-8.8 7.3-15.9 16.2-15.9l78.5 0.1c8.9 0 16.2 7.1 16.2 15.9 0 8.7-7.3 15.8-16.2 15.8z m0-67.6h-78.4c-8.9 0-16.2-7.1-16.2-15.9s7.3-15.9 16.2-15.9l78.4 0.1c8.9 0 16.2 7.1 16.2 15.9 0 8.7-7.3 15.8-16.2 15.8z" fill="#FFFFFF" p-id="5051"></path><path d="M546.4 735a190.3 190.3 0 1 0 380.6 0 190.3 190.3 0 1 0-380.6 0z" fill="#2196F3" p-id="5052"></path><path d="M820.7 701.2h41s2.2 0.1 3.1-4.2c0.8-3.6-1.6-7.1-1.6-7.1-1.1-1.5-51.3-72.7-51.3-72.7s-3.5-6.8-10.3-6.8c-6.7 0-9.4 4.8-9.4 4.8l-50 73.1s-1.7 4.6-0.9 8.6c0.9 4.3 4 4.2 4 4.2h38.4v71.1s-7.5 56.1-28.2 56.1c0 0 65.1-0.9 65.1-57.9M655.2 774h-41.1s-2.5 0.8-3.1 5.3c-0.4 3.1 1.1 5 1.6 5.6 1.1 1.5 51.4 72.8 51.4 72.8s3.5 6.8 10.3 6.8c6.7 0 9.4-4.8 9.4-4.8l50-73.2s1.8-3 0.8-7.2c-1.3-5.1-3.9-5.3-3.9-5.3h-38.4v-71.5s7.5-56.1 28.2-56.1c0 0-65.2 0.9-65.2 57.9" fill="#FFFFFF" p-id="5053"></path></svg>
+                    </div>
+                    <span class="item-label">转专业指南</span>
+                </a>
+                <a class="grid-item" data-title="新生报考指南" data-desc="新生报考流程、注意事项及常见问题解答" href="https://mp.weixin.qq.com/s/OFnmwCG2_gTQwHFHwWeN2Q">
+                    <div class="icon-wrapper icon-guide">
+                        <span class="badge">必看</span>
+                        <svg t="1782314060882" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6157" style="width: 85%; height: 85%; object-fit: cover;"><path d="M425.095 743.884H171.348c-41.533 0-75.323-33.79-75.323-75.323V285.927c0-41.533 33.79-75.322 75.323-75.322h499.91c41.533 0 75.322 33.79 75.322 75.322v139.168c0 17.673-14.327 32-32 32s-32-14.327-32-32V285.927c0-6.137-5.185-11.322-11.322-11.322h-499.91c-6.138 0-11.323 5.185-11.323 11.322v382.634c0 6.138 5.185 11.323 11.323 11.323h253.747c17.673 0 32 14.327 32 32s-14.327 32-32 32z" fill="" p-id="6158"></path><path d="M228.604 344.601c-17.673 0-32-14.327-32-32V127.99c0-17.673 14.327-32 32-32s32 14.327 32 32V312.6c0 17.674-14.327 32.001-32 32.001zM591.604 343.601c-17.673 0-32-14.327-32-32V126.99c0-17.673 14.327-32 32-32s32 14.327 32 32V311.6c0 17.674-14.328 32.001-32 32.001zM325.063 590.853c-10.422 0-20.641-5.085-26.785-14.45l-76.93-117.254c-9.695-14.777-5.575-34.615 9.201-44.31 14.776-9.696 34.614-5.575 44.31 9.201l76.93 117.255c9.695 14.776 5.575 34.614-9.201 44.31a31.867 31.867 0 0 1-17.525 5.248z" fill="" p-id="6159"></path><path d="M338.604 580.089c-8.467 0-16.916-3.338-23.207-9.962-12.171-12.814-11.65-33.068 1.164-45.24l163.501-155.298c12.814-12.17 33.068-11.65 45.24 1.164 12.171 12.814 11.649 33.069-1.164 45.24L360.637 571.291a31.895 31.895 0 0 1-22.033 8.798zM701.331 925.569c-60.832 0-118.022-23.689-161.037-66.703-43.014-43.015-66.703-100.205-66.703-161.037 0-60.831 23.689-118.021 66.703-161.036 43.015-43.015 100.205-66.704 161.037-66.704s118.022 23.689 161.037 66.704c43.014 43.015 66.703 100.205 66.703 161.036 0 60.832-23.689 118.022-66.703 161.037-43.014 43.014-100.205 66.703-161.037 66.703z m0-391.48c-90.287 0-163.74 73.454-163.74 163.74 0 90.287 73.453 163.74 163.74 163.74s163.74-73.453 163.74-163.74c0-90.286-73.453-163.74-163.74-163.74z" fill="" p-id="6160"></path><path d="M649.386 732.278c-4.801 13.601-12.601 27.8-20.4 37-2.8-2.6-8.8-6.8-12.399-9 7.6-8.2 14.199-20 17.8-31.999l14.999 3.999z m24.799-10.399v47.399c0 8-1.399 12.399-6.399 14.8-5.4 2.6-12.4 3-22.6 3-0.601-4.4-2.8-11.2-5-15.6 6.399 0.199 12.399 0.199 14.6 0.199s2.6-0.6 2.6-2.6v-47.199h-38.199v-15.8h38.199V687.88h-39.399v-15.601h22c-1-6.999-3.6-17.199-7.2-24.999l15-3.8c3.8 7.8 7 18.8 8 25.799l-11.2 3h27.6c3.601-8.399 7.601-20.6 9.8-28.999l17.2 3.6c-3.4 8.8-7 18-10.2 25.399h23.4v15.601h-38.2v18.199h35.399v15.8h-35.401z m35-78.799h-87.999v-15.399h36.6c-2.2-5.601-4.8-12-7.2-17l16.4-4.2c3.399 6.4 7.399 14.8 9.8 21.2h32.399v15.399z m-16.6 84.199c6.6 9.399 13.399 21.799 16.6 29.999l-13 7.8c-3.2-8.399-10-21.6-16-31.199l12.4-6.6z m107.398-36.399h-20.2v99.198h-18.199V690.88h-25.6v4.199c0 28.6-2.601 68.399-20.4 93.599-2.8-3.399-10.399-9-14.199-11 15.8-23.399 17.199-56.799 17.199-82.599V626.48c22.2-3.8 47-10 61.199-16.2l14.8 13.601c-16.6 6.399-38.199 11.199-58.599 14.8v34.999h63.999v17.2z" fill="" p-id="6161"></path></svg>
+                    </div>
+                    <span class="item-label">新生报考指南</span>
+                </a>
+                <a class="grid-item" data-title="专业分布" data-desc="专转本学生专业分布详情及选课指南" href="https://mp.weixin.qq.com/s/0xmww5B_JSyUgY3V56-TFQ">
+                    <div class="icon-wrapper icon-distribution">
+                        <span class="badge">专转本</span>
+                        <svg t="1781441033623" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%; object-fit: cover;"><path d="M271 472.74m19.99 0l104.92 0q19.99 0 19.99 19.99l0 201.28q0 19.99-19.99 19.99l-104.92 0q-19.99 0-19.99-19.99l0-201.28q0-19.99 19.99-19.99Z" fill="#EF4444"></path><path d="M457.78 292.81m19.99 0l104.92 0q19.99 0 19.99 19.99l0 383.4q0 19.99-19.99 19.99l-104.92 0q-19.99 0-19.99-19.99l0-383.4q0-19.99 19.99-19.99Z" fill="#EF4444"></path><path d="M644.57 389.16m19.99 0l104.92 0q19.99 0 19.99 19.99l0 283.89q0 19.99-19.99 19.99l-104.92 0q-19.99 0-19.99-19.99l0-283.89q0-19.99 19.99-19.99Z" fill="#EF4444"></path><path d="M831 826.14H242.17a87.35 87.35 0 0 1-87.25-87.25V251.75a35 35 0 0 1 70 0v487.14a17.27 17.27 0 0 0 17.25 17.25H831a35 35 0 0 1 0 70z" fill="#FCA5A5"></path></svg>
+                    </div>
+                    <span class="item-label">专业分布</span>
+                </a>
+                <a class="grid-item" data-title="全景校园" data-desc="720°全景查看盐城工学院校园风光" href="https://vr.justeasy.cn/view/1780b8an317nf332-1782312407.html">
+                    <div class="icon-wrapper icon-panorama">
+                        <span class="badge blue">720°全景</span>
+                        <img src="全景校园.PNG" style="width: 100%; height: 100%; object-fit: cover;" alt="全景校园">
+                    </div>
+                    <span class="item-label">全景校园</span>
+                </a>
+                <a class="grid-item" data-title="分班学号" data-desc="查询新生分班情况及学号分配信息">
+                    <div class="icon-wrapper icon-class">
+                        <svg t="1781441514564" class="icon" viewBox="0 0 1341 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%; object-fit: cover;"><path d="M1271.914 0.247H70.02A68.714 68.714 0 0 0 1.412 68.855v858.607c0 38.029 30.791 68.643 68.644 68.643h549.429a51.553 51.553 0 0 0 51.623-51.553 51.553 51.553 0 0 0-51.588-51.589H104.377V103.247h1133.215V893.14H1032.44a51.553 51.553 0 0 0-51.588 51.588c0 28.39 23.022 51.553 51.553 51.553h239.51a68.714 68.714 0 0 0 68.679-68.643V68.89A68.714 68.714 0 0 0 1271.879 0.247" fill="#707070"></path><path d="M207.342 549.676V206.212h309.142v343.464H207.342z m103-102.965h103V309.32h-103v137.357z m309.143-137.498h515.107v-103H619.485v103z m0 240.463h515.107V446.711H619.485v102.965zM207.342 790.14h927.25V687.175h-927.25v103z" fill="#707070"></path></svg>
+                    </div>
+                    <span class="item-label">分班学号</span>
+                </a>
+                <a class="grid-item" data-title="校园生活攻略" data-desc="衣食住行全攻略，帮你快速适应大学生活" href="https://mp.weixin.qq.com/s/eXtVNf_IVuKt5ACUrH_cQQ">
+                    <div class="icon-wrapper icon-life">
+                        <span class="badge orange">娱乐篇</span>
+                        <svg t="1781441593483" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%; object-fit: cover;"><path d="M759.498419 489.059225V446.987907c0-15.772775-11.34338-26.290605-28.338605-26.290605H226.756465c-17.003163 0-28.338605 10.517829-28.338605 26.290605v178.763411c0 110.401488 119.014202 199.783194 266.374946 199.783194h28.338605c147.344868 0 260.691349-89.381705 266.367008-199.791132 5.667721-21.027721 0-31.54555 0-136.692093z" fill="#F5CB2B"></path><path d="M753.100403 958.511628H123.126078c-14.53445 0-29.076837-14.53445-29.076838-29.076837 0-14.542388 14.542388-29.076837 29.076838-29.076838h629.974325c14.53445 0 29.076837 14.53445 29.076837 29.076838 0 14.542388-14.542388 29.076837-29.076837 29.076837z m67.845954-344.064h-72.688124V372.148589h72.688124c67.845953 0 121.149519 53.303566 121.149519 121.14952s-53.303566 121.149519-121.149519 121.149519z m-14.53445-58.153675h9.684341c33.926946 0 63.003783-29.076837 63.003783-62.995844s-29.076837-62.995845-63.003783-62.995845h-9.684341V556.293953z" fill="#333333"></path><path d="M811.484279 547.419287V280.369612H72.061023v267.049675c0 205.490605 164.475039 323.996775 369.671938 323.996775 205.276279 0 369.751318-118.514109 369.751318-323.996775z m-63.503876-203.545799v203.545799c0 168.047132-138.35907 260.492899-306.247442 260.492899-167.808992 0-306.168062-92.445767-306.168062-260.492899V343.873488h612.415504z" fill="#333333"></path><path d="M302.429271 226.772341h-9.692279c-14.542388 0-24.226729-9.692279-24.226728-24.226729V86.238264c0-9.692279 9.684341-24.234667 24.226728-24.234667h9.684341c14.542388 0 24.234667 9.692279 24.234667 24.234667v111.45724c4.842171 19.384558-9.684341 29.076837-24.226729 29.076837z m140.534078 0H433.255194c-14.526512 0-24.226729-9.692279-24.226729-24.226729V86.238264c0-9.692279 9.692279-24.234667 24.226729-24.234667h9.700217c14.526512 0 24.226729 9.692279 24.226729 24.234667v111.45724c4.842171 19.384558-9.692279 29.076837-24.226729 29.076837z m140.526139 0h-9.684341c-14.542388 0-24.234667-9.692279-24.234666-24.226729V86.238264c0-14.542388 9.684341-24.234667 24.234666-24.234667h9.684341c14.542388 0 24.234667 9.692279 24.234667 24.234667v111.45724c0 19.384558-9.684341 29.076837-24.234667 29.076837z" fill="#000006"></path></svg>
+                    </div>
+                    <span class="item-label">校园生活攻略</span>
+                </a>
+                <a class="grid-item" data-title="宿舍环境和分配" data-desc="查看宿舍楼分布、环境照片及分配规则" href="https://mp.weixin.qq.com/s/co4hMtuFUh5JlbVM_x8MaQ">
+                    <div class="icon-wrapper icon-dorm">
+                        <span class="badge blue">新生必看</span>
+                        <svg t="1780672716515" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" style="width: 42px; height: 42px; object-fit: cover;"><path d="M390.518955 104.618667l614.4 151.381333v748.885333h-614.4V104.618667z" fill="#266BD2"></path><path d="M17.100288 264.533333l371.2-153.6v893.952H17.100288V264.533333z" fill="#9DDAFE"></path><path d="M566.476288 449.194667l-65.024-11.776v-165.376l65.024 11.946666v165.205334zM684.918955 472.746667l-65.194667-11.946667v-165.376l65.194667 11.946667v165.376z" fill="#0052CB"></path><path d="M804.385621 489.130667l-65.194666-11.946667v-154.965333l65.194666 11.776v155.136z" fill="#F43151"></path><path d="M923.852288 508.416l-65.194667-11.946667V349.866667l65.194667 11.946666v146.602667zM566.476288 688.298667l-65.024-11.946667v-165.376l65.024 11.946667v165.376zM683.724288 700.416l-65.024-8.533333v-165.376l65.024 11.946666v161.962667zM806.092288 709.461333l-65.024-8.533333v-155.136l65.024 11.946667v151.722666zM925.558955 722.090667l-65.024-8.533334v-150.016l65.024 11.946667v146.602667z" fill="#0052CB"></path><path d="M319.350955 438.272l-51.2 15.36v-160.256l51.2-15.36v160.256zM318.668288 679.765333l-51.2 8.533334v-160.256l51.2-15.36v167.082666zM222.582955 699.733333l-51.2 8.533334v-160.256l51.2-15.36V699.733333zM125.985621 712.874667l-51.2 8.533333v-150.016l51.2-15.36v156.842667z" fill="#266BD2"></path><path d="M219.852288 471.722667l-51.2 15.36v-160.256l51.2-15.36v160.256z" fill="#FF6F7A"></path><path d="M128.033621 489.472l-51.2 15.189333v-146.602666l51.2-15.36v146.773333z" fill="#266BD2"></path><path d="M17.100288 241.152h51.2v770.218667H17.100288z" fill="#FFFFFF"></path></svg>
+                    </div>
+                    <span class="item-label">宿舍环境和分配</span>
+                </a>
+                <a class="grid-item" data-title="校历作息" data-desc="2026学年校历安排及作息时间表" href="https://mp.weixin.qq.com/s/lAX-18yuPLRIxbBAg9edkQ">
+                    <div class="icon-wrapper icon-calendar">
+                        <span class="badge green">新学期</span>
+                        <svg viewBox="0 0 1024 1024" style="width: 100%; height: 100%; object-fit: cover;"><path d="M784.138667 869.333333H239.861333a50.528 50.528 0 0 1-50.528-50.528V224.682667a50.528 50.528 0 0 1 50.528-50.528h544.288a50.538667 50.538667 0 0 1 50.538667 50.538666v594.122667a50.549333 50.549333 0 0 1-50.549333 50.517333z" fill="#E6E8ED"></path><path d="M834.677333 309.376v-92.085333a43.136 43.136 0 0 0-43.146666-43.136H232.469333a43.146667 43.146667 0 0 0-43.146666 43.136v92.085333h645.354666z" fill="#EC6D58"></path><path d="M723.328 241.76m-31.488 0a31.488 31.488 0 1 0 62.976 0 31.488 31.488 0 1 0-62.976 0Z" fill="#FFFFFF"></path><path d="M582.442667 241.76m-31.488 0a31.488 31.488 0 1 0 62.976 0 31.488 31.488 0 1 0-62.976 0Z" fill="#FFFFFF"></path><path d="M441.557333 241.76m-31.488 0a31.488 31.488 0 1 0 62.976 0 31.488 31.488 0 1 0-62.976 0Z" fill="#FFFFFF"></path><path d="M300.672 241.76m-31.488 0a31.488 31.488 0 1 0 62.976 0 31.488 31.488 0 1 0-62.976 0Z" fill="#FFFFFF"></path><path d="M422.826667 560.224c6.346667-8.992 9.536-17.674667 9.536-26.069333 0-8.384-2.762667-15.402667-8.277334-21.034667s-12.586667-8.458667-21.216-8.458667c-15.818667 0-30.794667 11.274667-44.949333 33.802667l-44.949333-26.613333c11.744-18.208 24.64-32 38.656-41.354667 14.026667-9.344 31.882667-14.016 53.578666-14.016s40.746667 6.890667 57.173334 20.672c16.416 13.781333 24.618667 32.544 24.618666 56.277333 0 12.949333-3.296 25.344-9.888 37.216-6.581333 11.861333-18.752 27.029333-36.490666 45.482667l-45.312 47.104h99.242666v50.336H317.290667v-41.706667l73.706666-75.509333c14.869333-15.093333 25.482667-27.136 31.829334-36.128zM695.914667 462.24v48.544h-99.242667v42.069333c7.434667-2.154667 15.946667-3.242667 25.536-3.242666 24.213333 0 45.066667 7.317333 62.581333 21.930666 17.482667 14.624 26.250667 34.336 26.250667 59.146667s-9.056 45.301333-27.157333 61.482667c-18.101333 16.181333-40.458667 24.266667-67.050667 24.266666-34.048 0-62.442667-12.586667-85.226667-37.749333l29.482667-40.992c2.165333 2.154667 5.045333 4.8 8.629333 7.914667 3.594667 3.114667 10.186667 7.253333 19.776 12.405333 9.578667 5.162667 19.178667 7.733333 28.768 7.733333a40.64 40.64 0 0 0 25.536-8.629333c7.434667-5.749333 11.146667-14.261333 11.146667-25.525333 0-11.264-4.021333-19.957333-12.053333-26.069334-8.032-6.112-18.389333-9.173333-31.093334-9.173333-12.714667 0-27.466667 4.554667-44.234666 13.664l-23.381334-25.173333V462.24h151.733334z" fill="#31495D"></path><path d="M723.978667 248.074667a14.165333 14.165333 0 0 1-14.165334-14.165334v-86.421333a14.165333 14.165333 0 1 1 28.330667 0v86.421333c0 7.829333-6.336 14.165333-14.165333 14.165334zM582.442667 248.074667a14.165333 14.165333 0 0 1-14.165334-14.165334v-86.421333a14.165333 14.165333 0 1 1 28.330667 0v86.421333a14.176 14.176 0 0 1-14.165333 14.165334zM440.896 248.074667a14.165333 14.165333 0 0 1-14.165333-14.165334v-86.421333a14.165333 14.165333 0 1 1 28.330666 0v86.421333c0 7.829333-6.336 14.165333-14.165333 14.165334zM299.36 248.074667a14.165333 14.165333 0 0 1-14.165333-14.165334v-86.421333a14.165333 14.165333 0 1 1 28.330666 0v86.421333a14.176 14.176 0 0 1-14.165333 14.165334z" fill="#F7CB5D"></path></svg>
+                    </div>
+                    <span class="item-label">校历作息</span>
+                </a>
+                <a class="grid-item" data-title="团关系转接" data-desc="共青团组织关系转接流程及所需材料" href="https://mp.weixin.qq.com/s/UT7HfMRJ0lzTC6T0VX-4Tw">
+                    <div class="icon-wrapper icon-league">
+                        <span class="badge orange">2025</span>
+                        <img src="共青团.PNG" alt="团关系转接" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <span class="item-label">团关系转接</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部统计 -->
+    <div class="footer">
+        <div class="visit-count">
+            累计访问：<strong>52.65w</strong>次
+        </div>
+        <div class="logos">
+            <div class="logo-item logo-5g">
+                <svg t="1781502427711" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%; object-fit: contain;"><path d="M125.1328 306.9952h221.7984l-12.9024 64.1024H176.128l-24.1664 78.848s161.9968-17.408 160.1536 120.4224c0 0 5.12 144.5888-181.0432 153.3952 0 0-93.5936-1.6384-117.76-27.648L35.0208 636.928s144.9984 72.704 194.9696-39.7312c0 0 38.0928-110.592-161.1776-85.4016l56.32-204.8z" fill="#E80327" p-id="3627"></path><path d="M843.1616 229.9904l-34.6112 195.7888h46.6944l19.8656-103.0144s25.1904-62.2592 64.9216-57.1392c0 0 33.792-1.6384 19.8656 62.2592l-19.8656 97.8944h48.9472l21.7088-111.8208s21.7088-81.5104-45.4656-88.2688c0 0-50.5856-5.5296-82.3296 43.2128L886.784 229.376l-43.6224 0.6144z" fill="#383838" p-id="3628"></path><path d="M742.1952 378.4704l22.7328-70.2464S466.3296 210.7392 368.0256 462.848c-31.744 81.5104-5.5296 267.6736 196.8128 260.7104 0 0 83.1488 0.4096 150.7328-26.8288l37.0688-214.4256-164.2496-1.024-7.168 64.7168 81.92 1.2288-16.7936 99.9424s-67.584 32.5632-145.408-5.12c0 0-102.6048-53.248-38.912-193.536 17.408-39.3216 118.9888-135.5776 280.1664-70.0416z" fill="#E80327" p-id="3629"></path></svg>
+            </div>
+            <div class="logo-item logo-unicom">
+                <img src="中国联通.png" alt="中国联通" style="height: 100%; width: auto; object-fit: contain;">
+            </div>
+        </div>
+        <div class="visit-count">
+            昨日访问：<strong>550</strong>次
+        </div>
+    </div>
+
+    <div class="safe-bottom"></div>
+
+    <script>
+        // 添加滚动动画
+        const cards = document.querySelectorAll('.card');
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        cards.forEach(function(card) {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(card);
+        });
+
+        // 模拟访问计数动画
+        const visitCount = document.querySelector('.footer .visit-count strong');
+        let count = 0;
+        const targetCount = 52.65;
+        const duration = 2000;
+        const step = targetCount / (duration / 16);
+
+        function animateCount() {
+            count += step;
+            if (count >= targetCount) {
+                count = targetCount;
+                visitCount.textContent = count.toFixed(2) + 'w';
+                return;
+            }
+            visitCount.textContent = count.toFixed(2) + 'w';
+            requestAnimationFrame(animateCount);
+        }
+
+        // 页面加载后启动计数动画
+        window.addEventListener('load', function() {
+            setTimeout(animateCount, 500);
+        });
+
+        // 开学倒计时
+        function updateCountdown() {
+            // 目标日期：2026年9月3日 00:00:00
+            const targetDate = new Date('2026-09-03T00:00:00+08:00');
+            const now = new Date();
+            
+            // 计算时间差（毫秒）
+            const diff = targetDate.getTime() - now.getTime();
+            
+            if (diff <= 0) {
+                document.getElementById('countdown-days').textContent = '0';
+                document.getElementById('countdown-hours').textContent = '0';
+                document.getElementById('countdown-minutes').textContent = '0';
+                document.getElementById('countdown-seconds').textContent = '0';
+                return;
+            }
+            
+            // 转换为天、时、分、秒
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            // 更新显示
+            document.getElementById('countdown-days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('countdown-hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('countdown-minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('countdown-seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+        
+        // 初始化倒计时
+        updateCountdown();
+        // 每秒更新一次
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no, email=no">
+    <meta name="theme-color" content="#0f5e3a">
+    <meta name="description" content="盐城师范学院2026级新生服务大厅 · 校园网申领 · 专业分布 · 宿舍信息 · 新生指南">
+    <meta name="keywords" content="盐城师范学院,2026级新生,校园网,新生服务,盐城师范学院新生">
+    <title>盐城师范学院2026级新生服务大厅</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230f5e3a'/><text x='16' y='23' font-size='18' text-anchor='middle' fill='white' font-weight='bold' font-family='sans-serif'>盐</text></svg>">
+</head>
+<body>
+    <header class="nav-bar">
+        <button class="icon-btn" onclick="history.length > 1 ? history.back() : window.scrollTo({top:0,behavior:'smooth'})">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/></svg>
+        </button>
+        <div class="title-group">
+            <div class="main-title">新生服务大厅</div>
+            <div class="sub-title">YCTU · 2026 Freshman</div>
+        </div>
+        <button class="icon-btn" onclick="YCTUService.showToast('长按页面可分享给同学')">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/></svg>
+        </button>
+    </header>
+
+    <section class="banner">
+        <!-- 简洁背景：顶部浅金色渐变（参考清华官网简洁风） -->
+        <div class="banner-bg-layer"></div>
+
+        <!-- 主内容：校徽 + 标题水平布局（清华式简洁） -->
+        <div class="banner-content">
+            <div class="banner-hero-row">
+                <!-- 校徽：无装饰、自然贴合 -->
+                <div class="banner-hero-logo">
+                    <img src="盐城师范学院.png" alt="盐城师范学院校徽">
+                </div>
+                <!-- 标题组：位于校徽右侧 -->
+                <div class="banner-hero-text">
+                    <h1 class="main-heading">新生服务大厅</h1>
+                    <p class="sub-heading">YANCHENG TEACHERS UNIVERSITY · 学生答疑 · 校园生活攻略 · 入学指南</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部淡红线过渡：更简洁自然 -->
+        <div class="banner-divider"></div>
+    </section>
+
+    <main class="main-content">
+        <div class="container">
+
+            <section class="countdown-card reveal">
+                <div class="countdown-header">
+                    <div class="countdown-icon">
+                        <svg viewBox="0 0 24 24" fill="#fff"><path d="M12,20A7,7 0 0,1 5,13V7H19V13A7,7 0 0,1 12,20M12,4A2,2 0 0,0 10,6H14A2,2 0 0,0 12,4M19,2H5A1,1 0 0,0 4,3V5A1,1 0 0,0 5,6H19A1,1 0 0,0 20,5V3A1,1 0 0,0 19,2Z"/></svg>
+                    </div>
+                    <div class="countdown-date">9月3日</div>
+                    <div class="countdown-title">距离新生报到还有</div>
+                </div>
+                <div class="countdown-timer">
+                    <div class="countdown-item"><div class="countdown-number" id="countdown-days">00</div><div class="countdown-label">天</div></div>
+                    <span class="countdown-separator">:</span>
+                    <div class="countdown-item"><div class="countdown-number" id="countdown-hours">00</div><div class="countdown-label">时</div></div>
+                    <span class="countdown-separator">:</span>
+                    <div class="countdown-item"><div class="countdown-number" id="countdown-minutes">00</div><div class="countdown-label">分</div></div>
+                    <span class="countdown-separator">:</span>
+                    <div class="countdown-item"><div class="countdown-number" id="countdown-seconds">00</div><div class="countdown-label">秒</div></div>
+                </div>
+            </section>
+
+            <section class="notice-bar reveal delay-1">
+                <div class="speaker-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3,9V15H7L12,20V4L7,9H3M13.5,7.5A5,5 0 0,1 13.5,16.5A5,5 0 0,1 13.5,7.5M13.5,10.5A2,2 0 0,0 13.5,13.5A2,2 0 0,0 13.5,10.5Z"/></svg>
+                </div>
+                <div class="notice-text"><strong>【盐小师服务站】</strong>中国联通·盐城师范学院校园营业厅官方账号，为新生提供全方位校园服务</div>
+            </section>
+
+            <section class="quick-nav reveal delay-1">
+                <a class="quick-nav-item" data-action="#campus-wifi" data-title="校园网">
+                    <div class="icon c1"><svg viewBox="0 0 24 24" fill="#fff"><path d="M12,21L15.6,16.2C14.6,15.45 13.35,15 12,15C10.65,15 9.4,15.45 8.4,16.2L12,21M1,9V13H3V9C3,5 7,3 11,3S19,5 19,9V13H21V9C21,5 17,1 13,1S5,5 5,9M8.5,13.5C9.5,12.5 10.93,12 12,12C13.07,12 14.5,12.5 15.5,13.5L12,17L8.5,13.5Z"/></svg></div>
+                    <span class="label">校园网</span>
+                </a>
+                <a class="quick-nav-item" data-action="#freshman" data-title="新生专栏">
+                    <div class="icon c2"><svg viewBox="0 0 24 24" fill="#fff"><path d="M12,3L1,9L12,15L21,10.09V17H23V9M5,13.18V17.18L12,21L19,17.18V13.18L12,17L5,13.18Z"/></svg></div>
+                    <span class="label">新生专栏</span>
+                </a>
+                <a class="quick-nav-item" data-action="#news" data-title="校园动态">
+                    <div class="icon c3"><svg viewBox="0 0 24 24" fill="#fff"><path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,19H5V8H19V19M7,10V12H17V10H7M7,14V16H14V14H7Z"/></svg></div>
+                    <span class="label">校园动态</span>
+                </a>
+                <a class="quick-nav-item" data-action="#faq" data-title="常见问题">
+                    <div class="icon c4"><svg viewBox="0 0 24 24" fill="#fff"><path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,6A4,4 0 0,1 16,10C16,11.5 15,12.5 14,13.5C13,14.5 12,15.25 12,17H11V16.5C11,15.25 11.75,14.25 12.75,13.25C13.75,12.25 15,11.17 15,10A3,3 0 0,0 12,7A3,3 0 0,0 9,10H7A5,5 0 0,1 12,5M11,18H13V20H11V18Z"/></svg></div>
+                    <span class="label">常见问题</span>
+                </a>
+                <a class="quick-nav-item" data-action="#" data-title="录取概率">
+                    <div class="icon" style="background:linear-gradient(135deg,#ec4899,#be185d);"><svg viewBox="0 0 24 24" fill="#fff"><path d="M3,3V21H21V19H5V3H3M19,2.58V15.59L13.71,10.3L12.29,11.71L19,18.41L23,14.41L21.59,13L19,15.59V2.58H19M7,5V11.17L10.71,7.46L12.13,8.88L8.41,12.59L12.13,16.3L10.71,17.71L7,14V19H5V5H7Z"/></svg></div>
+                    <span class="label">录取概率</span>
+                </a>
+                <a class="quick-nav-item" data-action="#contact" data-title="联系我们">
+                    <div class="icon c5"><svg viewBox="0 0 24 24" fill="#fff"><path d="M20,15.5C18.8,15.5 17.5,15.3 16.4,14.9C16.3,14.9 16.2,14.9 16.1,14.9C15.8,14.9 15.6,15 15.4,15.2L13.2,17.4C10.4,15.9 8,13.6 6.6,10.8L8.8,8.6C9.1,8.3 9.2,7.9 9,7.6C8.7,6.5 8.5,5.2 8.5,4C8.5,3.5 8,3 7.5,3H4C3.5,3 3,3.5 3,4C3,13.4 10.6,21 20,21C20.5,21 21,20.5 21,20V16.5C21,16 20.5,15.5 20,15.5Z"/></svg></div>
+                    <span class="label">联系我们</span>
+                </a>
+            </section>
+
+            <section class="card reveal delay-2" id="campus-wifi">
+                <div class="card-header">
+                    <div class="card-title-group">
+                        <div class="card-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12,21L15.6,16.2C14.6,15.45 13.35,15 12,15C10.65,15 9.4,15.45 8.4,16.2L12,21M4.93,11.93C6.93,9.58 9.38,7.87 12,7.87C14.62,7.87 17.07,9.58 19.07,11.93L20.5,10.5C18.14,7.7 15.22,6 12,6C8.78,6 5.86,7.7 3.5,10.5L4.93,11.93M12,12A3,3 0 0,0 9,15A3,3 0 0,0 12,18A3,3 0 0,0 15,15A3,3 0 0,0 12,12Z"/></svg></div>
+                        <div class="text-group">
+                            <div class="card-title">校园网Wifi在线申领</div>
+                            <div class="card-subtitle">盐城师范学院校园网络服务</div>
+                        </div>
+                    </div>
+                    <div class="card-status">2026级新生暂未开启</div>
+                </div>
+                <div class="grid-container">
+                    <a class="grid-item" data-action="#" data-title="关于校园网">
+                        <div class="icon-wrapper"><span class="badge green">WIFI</span><svg viewBox="0 0 24 24" fill="#0f5e3a"><path d="M12,21L15.6,16.2C14.6,15.45 13.35,15 12,15C10.65,15 9.4,15.45 8.4,16.2L12,21M1,9V13H3V9C3,5 7,3 11,3S19,5 19,9V13H21V9C21,5 17,1 13,1S5,5 5,9M8.5,13.5C9.5,12.5 10.93,12 12,12C13.07,12 14.5,12.5 15.5,13.5L12,17L8.5,13.5Z"/></svg></div>
+                        <span class="item-label">关于校园网</span>
+                    </a>
+                    <a class="grid-item" data-action="#" data-title="大学生权益">
+                        <div class="icon-wrapper color-orange"><span class="badge">每月免费领</span><svg viewBox="0 0 24 24" fill="#d97706"><path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M10,17L6,13L7.41,11.59L10,14.17L16.59,7.58L18,9L10,17Z"/></svg></div>
+                        <span class="item-label">大学生权益</span>
+                    </a>
+                    <a class="grid-item" data-action="#" data-title="路由器领取">
+                        <div class="icon-wrapper color-blue"><svg viewBox="0 0 24 24" fill="#2563eb"><path d="M17.7,7.59L18.8,4.66C18.94,4.28 18.67,3.93 18.29,4.07L16.29,4.77L15.5,1.13C15.44,0.86 15.19,0.7 14.92,0.76L13.11,1.14L11.58,4.44C11.5,4.62 11.56,4.84 11.71,4.94L13.5,6.04L12.75,9.67C12.67,10.05 12.94,10.4 13.32,10.25L17.03,8.63C17.4,8.47 17.54,8 17.33,7.66L17.7,7.59M20,13V18A2,2 0 0,1 18,20H4A2,2 0 0,1 2,18V12A2,2 0 0,1 4,10H11.67L13.5,6.07L16.17,7.58L14.33,12H17.67L19.5,8.07L21.17,9L19.33,13H20M4,12V18H18V12H4Z"/></svg></div>
+                        <span class="item-label">路由器领取</span>
+                    </a>
+                    <a class="grid-item" data-action="#" data-title="咨询官方">
+                        <div class="icon-wrapper color-purple"><svg viewBox="0 0 24 24" fill="#7c3aed"><path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20C10.34,20 8.84,19.37 7.74,18.32L9.17,15.83C9.87,16.56 10.87,17 12,17A3,3 0 0,0 15,14V11A1,1 0 0,0 14,10H13V7.5A1.5,1.5 0 0,0 11.5,6A1.5,1.5 0 0,0 10,7.5A1,1 0 0,1 9,8.5A1,1 0 0,1 8,7.5A3.5,3.5 0 0,1 11.5,4H12M7,12A1,1 0 0,0 6,13A1,1 0 0,0 7,14A1,1 0 0,0 8,13A1,1 0 0,0 7,12M17,12A1,1 0 0,0 16,13A1,1 0 0,0 17,14A1,1 0 0,0 18,13A1,1 0 0,0 17,12Z"/></svg></div>
+                        <span class="item-label">咨询官方</span>
+                    </a>
+                </div>
+            </section>
+
+            <section class="card reveal delay-2" id="freshman">
+                <div class="card-header">
+                    <div class="card-title-group">
+                        <div class="card-icon" style="background:#dbeafe;color:#1d4ed8;"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12,3L1,9L12,15L21,10.09V17H23V9M5,13.18V17.18L12,21L19,17.18V13.18L12,17L5,13.18Z"/></svg></div>
+                        <div class="text-group">
+                            <div class="card-title">盐城师范学院26级新生专栏</div>
+                            <div class="card-subtitle">新生了解校园第一站</div>
+                        </div>
+                    </div>
+                    <div class="card-status hot">HOT</div>
+                </div>
+                <div class="grid-container">
+                    <a class="grid-item" data-action="#" data-title="新生课表">
+                        <div class="icon-wrapper color-blue"><span class="badge blue">学习必备</span><svg viewBox="0 0 24 24" fill="#2563eb"><path d="M19,19H5V8H19M16,1V3H8V1H6V3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3H18V1M17,12H12V17H17V12Z"/></svg></div>
+                        <span class="item-label">新生课表</span>
+                    </a>
+                    <a class="grid-item" href="https://mp.weixin.qq.com/s/jk2Ke-LReQhlquoVyhZahQ" data-title="专业分布表">
+                        <div class="icon-wrapper"><span class="badge orange">2026</span><svg viewBox="0 0 24 24" fill="#0f5e3a"><path d="M3,3H9V7H3V3M15,3H21V7H15V3M9,17H3V21H9V17M15,17H21V21H15V17M3,11H21V15H3V11Z"/></svg></div>
+                        <span class="item-label">专业分布表</span>
+                    </a>
+                    <a class="grid-item" href="https://mp.weixin.qq.com/s/8aBeHfGMJpcTyv46h9vIGQ" data-title="转专业指南">
+                        <div class="icon-wrapper color-teal"><span class="badge">重要</span><svg viewBox="0 0 24 24" fill="#0d9488"><path d="M14,17H7V14L3,18L7,22V19H19V17M18,7H11V10L7,6L11,2V5H21V7Z"/></svg></div>
+                        <span class="item-label">转专业指南</span>
+                    </a>
+                    <a class="grid-item" href="https://mp.weixin.qq.com/s/gpqE-e8ZJCrbeyUjM0seZg" data-title="校园生活">
+                        <div class="icon-wrapper color-orange"><span class="badge orange">必看</span><svg viewBox="0 0 24 24" fill="#d97706"><path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M12.97,17L8.5,12.5L9.86,11.14L12.97,14.25L17.64,9.58L19.04,10.97L12.97,17Z"/></svg></div>
+                        <span class="item-label">校园生活</span>
+                    </a>
+                    <a class="grid-item" href="https://vr.justeasy.cn/view/815i78mv3k334434-1783336178.html" data-title="全景校园">
+                        <div class="icon-wrapper color-purple"><span class="badge purple">720°全景</span><svg viewBox="0 0 24 24" fill="#7c3aed"><path d="M12,2C6.48,2 2,6.48 2,12C2,17.52 6.48,22 12,22C17.52,22 22,17.52 22,12C22,6.48 17.52,2 12,2M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6Z"/></svg></div>
+                        <span class="item-label">全景校园</span>
+                    </a>
+                    <a class="grid-item" data-action="#" data-title="分班学号">
+                        <div class="icon-wrapper color-blue"><svg viewBox="0 0 24 24" fill="#2563eb"><path d="M5,6H23V18H5V6M14,9A3,3 0 0,1 17,12A3,3 0 0,1 14,15A3,3 0 0,1 11,12A3,3 0 0,1 14,9M9,8A2,2 0 0,1 7,10V14A2,2 0 0,1 9,16H11A2,2 0 0,1 13,14V10A2,2 0 0,1 11,8H9M1,10H3V20H19V22H3A2,2 0 0,1 1,20V10Z"/></svg></div>
+                        <span class="item-label">分班学号</span>
+                    </a>
+                    <a class="grid-item" href="https://mp.weixin.qq.com/s/gpqE-e8ZJCrbeyUjM0seZg" data-title="校园生活攻略">
+                        <div class="icon-wrapper color-orange"><span class="badge orange">娱乐篇</span><svg viewBox="0 0 24 24" fill="#d97706"><path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4Z"/></svg></div>
+                        <span class="item-label">校园生活</span>
+                    </a>
+                    <a class="grid-item" href="https://mp.weixin.qq.com/s/cXiS3uTGRX3m5fkgfn6RhA" data-title="宿舍环境和分配">
+                        <div class="icon-wrapper color-blue"><span class="badge blue">新生必看</span><svg viewBox="0 0 24 24" fill="#2563eb"><path d="M12,3L2,12H5V20H19V12H22L12,3M7.5,16.75A1.25,1.25 0 0,0 8.75,15.5A1.25,1.25 0 0,0 7.5,14.25A1.25,1.25 0 0,0 6.25,15.5A1.25,1.25 0 0,0 7.5,16.75M16.5,16.75A1.25,1.25 0 0,0 17.75,15.5A1.25,1.25 0 0,0 16.5,14.25A1.25,1.25 0 0,0 15.25,15.5A1.25,1.25 0 0,0 16.5,16.75Z"/></svg></div>
+                        <span class="item-label">宿舍分配</span>
+                    </a>
+                    <a class="grid-item" href="https://mp.weixin.qq.com/s/C_xNtwrTCGN6s-GdVk3wTw" data-title="校历作息">
+                        <div class="icon-wrapper"><span class="badge green">新学期</span><svg viewBox="0 0 24 24" fill="#0f5e3a"><path d="M19,19H5V8H19M16,1V3H8V1H6V3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3H18V1Z"/></svg></div>
+                        <span class="item-label">校历作息</span>
+                    </a>
+                    <a class="grid-item" href="https://mp.weixin.qq.com/s/bjClEbdRvbCCCmxYIZ1hfg" data-title="团关系转接">
+                        <div class="icon-wrapper color-red"><span class="badge orange">2026</span><svg viewBox="0 0 24 24" fill="#dc2626"><path d="M12,3L9,9H5L8,13L6,19L12,16L18,19L16,13L19,9H15L12,3M12,7.7L13.53,10.7H16.77L14.3,12.73L15.16,15.8L12,14.27L8.84,15.8L9.7,12.73L7.23,10.7H10.47L12,7.7Z"/></svg></div>
+                        <span class="item-label">团关系转接</span>
+                    </a>
+                    <a class="grid-item" data-action="#" data-title="奖助学金">
+                        <div class="icon-wrapper color-orange"><svg viewBox="0 0 24 24" fill="#d97706"><path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4M12,6A4,4 0 0,1 16,10A4,4 0 0,1 12,14A4,4 0 0,1 8,10A4,4 0 0,1 12,6M11,12H13A1,1 0 0,1 14,13A1,1 0 0,1 13,14H11V17H13V14A1,1 0 0,1 14,13A1,1 0 0,1 13,12H11V12M11,18H13V20H11V18Z"/></svg></div>
+                        <span class="item-label">奖助学金</span>
+                    </a>
+                    <a class="grid-item" data-action="#" data-title="参军入伍">
+                        <div class="icon-wrapper color-red"><svg viewBox="0 0 24 24" fill="#dc2626"><path d="M17.5,3.5L15.5,5.5L11,10L13.5,12.5L11,15L9.5,13.5L3.5,19.5L5,21L11,15.5L13.5,18L15.5,16L18,18.5L20.5,16L18,13.5L20.5,11L17.5,3.5Z"/></svg></div>
+                        <span class="item-label">参军入伍</span>
+                    </a>
+                </div>
+            </section>
+
+            <section class="card reveal delay-3" id="news">
+                <div class="card-header">
+                    <div class="card-title-group">
+                        <div class="card-icon" style="background:#fef3c7;color:#d97706;"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,19H5V8H19V19M7,10V12H17V10H7M7,14V16H14V14H7Z"/></svg></div>
+                        <div class="text-group">
+                            <div class="card-title">校园动态 & 通知公告</div>
+                            <div class="card-subtitle">最新消息一手掌握</div>
+                        </div>
+                    </div>
+                    <div class="card-status new">NEW</div>
+                </div>
+                <div class="news-list">
+                    <div class="news-item"><span class="tag-news hot">重要</span><span class="news-title">2026级新生报到须知及流程安排</span><span class="news-date">07-01</span><span class="news-arrow">›</span></div>
+                    <div class="news-item"><span class="tag-news new">通知</span><span class="news-title">关于开展2026级新生入学教育的通知</span><span class="news-date">06-28</span><span class="news-arrow">›</span></div>
+                    <div class="news-item"><span class="tag-news notice">公示</span><span class="news-title">2026年新生奖学金评定办法公布</span><span class="news-date">06-25</span><span class="news-arrow">›</span></div>
+                    <div class="news-item"><span class="tag-news hot">活动</span><span class="news-title">"迎新生·筑梦盐师"校园开放日活动预告</span><span class="news-date">06-20</span><span class="news-arrow">›</span></div>
+                    <div class="news-item"><span class="tag-news notice">通知</span><span class="news-title">校园无线网络覆盖优化工程进展</span><span class="news-date">06-15</span><span class="news-arrow">›</span></div>
+                </div>
+            </section>
+
+            <section class="card reveal delay-3" id="faq">
+                <div class="card-header">
+                    <div class="card-title-group">
+                        <div class="card-icon" style="background:#ede9fe;color:#7c3aed;"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,6A4,4 0 0,1 16,10C16,11.5 15,12.5 14,13.5C13,14.5 12,15.25 12,17H11V16.5C11,15.25 11.75,14.25 12.75,13.25C13.75,12.25 15,11.17 15,10A3,3 0 0,0 12,7A3,3 0 0,0 9,10H7A5,5 0 0,1 12,5M11,18H13V20H11V18Z"/></svg></div>
+                        <div class="text-group">
+                            <div class="card-title">新生常见问题</div>
+                            <div class="card-subtitle">点击展开查看详细解答</div>
+                        </div>
+                    </div>
+                    <div class="card-status">FAQ</div>
+                </div>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <div class="faq-question"><span class="faq-q-label">Q</span><span class="faq-q-text">新生报到需要准备哪些材料？</span><span class="faq-toggle"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/></svg></span></div>
+                        <div class="faq-answer"><p>需携带：录取通知书、身份证原件及复印件、党团组织关系材料、一寸/二寸免冠照片若干、个人档案（部分省市由高中统一邮寄）、户口迁移证（如需迁户）、缴费凭证等。建议提前整理放入文件袋，方便报到时快速办理。</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question"><span class="faq-q-label">Q</span><span class="faq-q-text">校园网如何办理？费用是多少？</span><span class="faq-toggle"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/></svg></span></div>
+                        <div class="faq-answer"><p>校园网由中国联通盐城师范学院校园营业厅统一办理，2026级新生报到后可在营业厅或线上渠道办理。具体资费以当年公布方案为准，一般含网络使用及可选权益包。办理后可通过宿舍、教学楼、图书馆等区域的 Wi-Fi 接入。</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question"><span class="faq-q-label">Q</span><span class="faq-q-text">宿舍是如何分配的？可以自行选择吗？</span><span class="faq-toggle"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/></svg></span></div>
+                        <div class="faq-answer"><p>宿舍由学校统一分配，按学院、专业、班级集中安排，一般不支持自由选择。宿舍配备床、衣柜、书桌、空调、网络接口等基本设施。宿舍环境照片可在"宿舍环境和分配"功能项查看。</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question"><span class="faq-q-label">Q</span><span class="faq-q-text">入学后可以转专业吗？有哪些要求？</span><span class="faq-toggle"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/></svg></span></div>
+                        <div class="faq-answer"><p>学校支持转专业，一般在大一第二学期启动相关流程。具体要求包括学业成绩排名、无违纪记录、通过目标专业考核等。不同学院、专业要求略有差异。可点击上方"转专业指南"查看最新政策文件。</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question"><span class="faq-q-label">Q</span><span class="faq-q-text">学校有哪些奖助学金项目？如何申请？</span><span class="faq-toggle"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/></svg></span></div>
+                        <div class="faq-answer"><p>学校设有国家奖学金、国家励志奖学金、国家助学金、校长奖学金、单项奖学金及各类社会奖助学金等。申请方式以学院通知为准，一般每年秋季学期集中评定。家庭经济困难学生可申请生源地信用助学贷款。</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question"><span class="faq-q-label">Q</span><span class="faq-q-text">如何查询分班情况和学号？</span><span class="faq-toggle"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/></svg></span></div>
+                        <div class="faq-answer"><p>新生分班信息和学号一般在开学前 1-2 周由各学院公布或在报到现场查询。可关注所在学院官方通知或通过本页"分班学号"功能（待上线）查询。</p></div>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="footer reveal delay-4" id="contact">
+                <div class="footer-stats">
+                    <div class="stat"><div class="label">累计访问</div><div class="value"><span data-counter="126.8">126.8</span><span class="unit">w</span></div></div>
+                    <div class="stat"><div class="label">昨日访问</div><div class="value"><span data-counter="1280">1280</span><span class="unit">次</span></div></div>
+                    <div class="stat"><div class="label">服务新生</div><div class="value"><span data-counter="12000">12000</span><span class="unit">+</span></div></div>
+                </div>
+                <div class="footer-logos">
+                    <div class="footer-logo">
+                        <div class="logo-box">
+                            <img src="盐城师范学院.png" alt="盐城师范学院校徽">
+                        </div>
+                        <div class="logo-name">盐城师范学院</div>
+                    </div>
+                    <div class="footer-logo">
+                        <div class="logo-box" style="background:linear-gradient(135deg,#eff6ff,#dbeafe);border:1px solid rgba(37,99,235,0.2);box-shadow:0 4px 12px rgba(37,99,235,0.08);">
+                            <img src="联通.png" alt="中国联通">
+                        </div>
+                        <div class="logo-name">中国联通</div>
+                    </div>
+                </div>
+                <div class="footer-text">
+                    <strong>盐小师服务站</strong> · 中国联通盐城师范学院校园营业厅<br>
+                    为 2026 级新生提供全方位校园服务 · Copyright © <span id="currentYear">2026</span> YCTU
+                </div>
+            </footer>
+
+        </div>
+    </main>
+
+    <button class="back-to-top" id="backToTop" aria-label="返回顶部">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.41,15.42L12,10.83L16.59,15.42L18,14L12,8L6,14L7.41,15.42Z"/></svg>
+    </button>
+
+    <script src="app.js" defer></script>
+</body>
+</html>
