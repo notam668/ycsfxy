@@ -58,23 +58,23 @@
     --radius-xl: 24px;
 
     /* 字号 */
-    --text-xs: 11px;
-    --text-sm: 13px;
-    --text-base: 15px;
-    --text-lg: 18px;
-    --text-xl: 22px;
-    --text-2xl: 28px;
-    --text-3xl: 36px;
-    --text-hero: 56px;
+    --text-xs: 10px;
+    --text-sm: 12px;
+    --text-base: 14px;
+    --text-lg: 16px;
+    --text-xl: 18px;
+    --text-2xl: 22px;
+    --text-3xl: 28px;
+    --text-hero: 42px;
 
     /* 间距 */
-    --space-1: 4px;
-    --space-2: 8px;
-    --space-3: 12px;
-    --space-4: 16px;
-    --space-5: 20px;
-    --space-6: 24px;
-    --space-8: 32px;
+    --space-1: 2px;
+    --space-2: 6px;
+    --space-3: 10px;
+    --space-4: 12px;
+    --space-5: 16px;
+    --space-6: 20px;
+    --space-8: 24px;
 
     /* 动画时长 */
     --transition-fast: 0.2s ease;
@@ -188,7 +188,7 @@ button {
 /* ---------- 2. Banner 英雄区（清华风格：简洁、白底 + 顶部红金渐变） ---------- */
 .banner {
     position: relative;
-    padding: 56px 0 72px;
+    padding: 32px 0 40px;
     background: #fff;
     overflow: hidden;
     text-align: left;
@@ -819,7 +819,7 @@ button {
 /* ---------- 8. 快速入口导航 ---------- */
 .quick-nav {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 6px;
     background: #fff;
     border-radius: var(--radius-lg);
@@ -1274,7 +1274,7 @@ button {
 /* ---------- 16. 响应式：平板及以下 ---------- */
 @media (max-width: 768px) {
     .banner {
-        padding: 40px 0 56px;
+        padding: 24px 0 32px;
     }
 
     /* Banner 水平布局响应式 */
@@ -1340,7 +1340,7 @@ button {
     }
 
     .quick-nav {
-        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: repeat(3, 1fr);
     }
 
     .card-header .card-title {
@@ -1355,7 +1355,7 @@ button {
 /* ---------- 17. 响应式：小屏手机 ---------- */
 @media (max-width: 480px) {
     .banner {
-        padding: 28px 0 44px;
+        padding: 16px 0 24px;
     }
 
     .banner-hero-row {
@@ -1426,7 +1426,7 @@ button {
     }
 
     .quick-nav {
-        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         gap: 4px;
         padding: var(--space-3) var(--space-2);
     }

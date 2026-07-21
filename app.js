@@ -224,8 +224,8 @@
                 const title = item.dataset.title || "";
                 const href = item.getAttribute("href");
 
-                // 1) 如果有真实外链（http 开头），优先跳转
-                if (href && /^https?:/i.test(href)) {
+                // 1) 如果有真实外链或文件链接，优先跳转
+                if (href && href !== "#") {
                     showToast("正在前往：" + (title || "详情页"));
                     // 让浏览器自然通过 href 打开新标签，同时使用 window.open 兜底
                     setTimeout(() => window.open(href, "_blank", "noopener"), 350);
@@ -249,7 +249,12 @@
                     e.preventDefault();
                     const target = document.querySelector(action);
                     if (target) {
-                        target.scrollIntoView({ behavior: "smooth", block: "start" });
+                        const navHeight = document.querySelector('.nav-bar')?.offsetHeight || 60;
+                        const targetPosition = target.getBoundingClientRect().top + window.scrollY;
+                        window.scrollTo({
+                            top: targetPosition - navHeight - 15,
+                            behavior: "smooth"
+                        });
                     }
                     return;
                 }
